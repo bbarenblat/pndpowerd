@@ -1,0 +1,24 @@
+# Editor backup files
+*~
+\#*
+.\#*
+.*.swp
+
+# Sandboxes
+cabal-dev/
+.hsenv*/
+hsenv.log
+.cabal-sandbox/
+cabal.sandbox.config
+
+# GHC
+*.hi
+*.o
+
+# Cabal
+dist*/
+
+
+# Local Variables:
+# mode: conf
+# End:

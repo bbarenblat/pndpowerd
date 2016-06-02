@@ -1,0 +1,20 @@
+[Unit]
+Description=Pandora power manager
+
+[Service]
+Type=simple
+ExecStart=/usr/local/sbin/pndpowerd
+Restart=always
+
+# For safety, disable charging when pndpowerd shuts off.
+ExecStopPost=/bin/sh -c '/bin/echo 0 >/sys/class/power_supply/twl4030_ac/enable'
+
+# Security options
+PrivateNetwork=yes
+InaccessibleDirectories=/boot /dev /home -/lost+found /media /mnt /opt -/root /sbin /srv /tmp /var
+ReadOnlyDirectories=/bin /etc /lib /proc /run /usr
+ReadWriteDirectories=/sys
+CapabilityBoundingSet=
+
+[Install]
+WantedBy=default.target
